@@ -35,12 +35,12 @@
     .mapcontainer {
         margin-top: 100px;
         margin-bottom: 100px;
+        position: relative;
     }
 
     .node {
       width: 55px;
       height: 55px;
-      transform: translateX(35vw);
     }
 
     .nodecontainer {
@@ -51,13 +51,52 @@
     .nodedots {
      width: 50px;
      height: 100px;
-     transform: translate(32.2vw,4.6vw);
+
+    }
+
+    .nodemaintext {
+        color: black;
+        transform: !important translateY(-100 px);
+    }
+
+    #wrapper {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #wrapper img {
+            display: block;
+    }
+
+    .verticalalignment {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .imagetext {
+    transform:translate(80px,-50px);
+    }
+
+    .nodedots {
+        transform: translate(3px,-70px);
+    }
+
+    .routedatacontainer {
+    transform: translateX(250px);
+    }
+
+    .tempnodepositions {
+        transform: translateY(-70px);
     }
 </style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -199,231 +238,245 @@
             </div>
         </div>
 
-            <p style="float: left;"><img src="http://placekitten.com/g/200/200" height="200px" width="200px" border="1px"></p>
-            <p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text</p>
 
 
-        <div class="nodecontainer">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <span class="subheading">Planning</span>
-                    <h2>In En Uitstap Locaties</h2>
-                </div>
-            </div>
-            <div>
-              <div class="imagesection">
-              <img class="node" src="~/images/BlueCircle.png" />
-               <div class="imagetext">
-                <p>some text</p>
-               </div>
-              </div>
-              <img class="nodedots" src="~/images/BlueDots.png" />
-            </div>
-        </div>
-
-        <section class="ftco-section ftco-about">
-            <div class="container">
-                <div class="row no-gutters">
-                    <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="        background-image: url(images/buschauffeur1.jpg);">
-                    </div>
-                    <div class="col-md-6 wrap-about ftco-animate">
-                        <div class="heading-section heading-section-white pl-md-5">
-                            <span class="subheading">Over OV Tracker</span>
-                            <h2 class="mb-4">Hartelijke Groet Namens OV Tracker En Alle Collega's</h2>
-
-                            <p>OV Tracker is een bedrijf gestart in 2021, sinds de start hebben we snel success geboekt door onze concurrerende route planning.</p>
-                            <p>In samenwerking met OV, NS en Google hebben wij de beste resultaat die er te bieden is qua route planning, hierbij wordt er ook gekeken naar alternatieve route's en transport mogelijkheiden, dit betekent dat er een ruim assortiment aan keuze is welk niet aanwezig is bij andere concurrenten</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section">
-            <div class="container">
-                <div class="row justify-content-center mb-5">
-                    <div class="col-md-7 text-center heading-section ftco-animate">
-                        <span class="subheading">Services</span>
-                        <h2 class="mb-3">Wij Bieden Meerdere Services</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="services services-2 w-100 text-center">
-                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-wedding-car"></span></div>
-                            <div class="text w-100">
-                                <h3 class="heading mb-2">Ingerekend verlaat transport</h3>
-                                <p>Indien er enige problemen zijn bieden wij de snelste die er op attenderen in onze app.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="services services-2 w-100 text-center">
-                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
-                            <div class="text w-100">
-                                <h3 class="heading mb-2">Smart Planning</h3>
-                                <p>onze zelf gegenereerde algoritmes zorgen ervoor dat alle alternatieve vervoers mogelijkheiden ook meeberekend worden.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="services services-2 w-100 text-center">
-                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
-                            <div class="text w-100">
-                                <h3 class="heading mb-2">Updates</h3>
-                                <p>Wekelijkse updates om van te voren in te plannen wanneer er een conflict plaats vindt.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="services services-2 w-100 text-center">
-                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
-                            <div class="text w-100">
-                                <h3 class="heading mb-2">GPS Tracking</h3>
-                                <p>Alle OV en NS transport middelen worden constant gecheckt op hun GPS locatie welk zich veroorloofd voor verbeterde inplanning.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ftco-section ftco-intro" style="background-image: url(images/bus5.jpg);">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row justify-content-end">
-                    <div class="col-md-6 heading-section heading-section-white ftco-animate">
-                        <h2 class="mb-3">Wanneer op tijd komen de voorrang neemt.</h2>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
-        <section class="ftco-section">
-            <div class="container">
+            <div class="nodecontainer">
                 <div class="row justify-content-center mb-5">
                     <div class="col-md-7 heading-section text-center ftco-animate">
-                        <span class="subheading">Artikels</span>
-                        <h2>Recente artikels</h2>
+                        <span class="subheading">Planning</span>
+                        <h2>In En Uitstap Locaties</h2>
                     </div>
                 </div>
-                <div class="row d-flex">
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry justify-content-end">
-                            <a href="blog-single.html" class="block-20" style="background-image: url('images/ov1.jpg');">
-                            </a>
-                            <div class="text pt-4">
-                                <div class="meta mb-3">
-                                    <div><a href="#">Oct. 29, 2021</a></div>
-                                    <div><a href="#">J. Cohen</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
+
+                <div class="routedatacontainer col-md-8 d-flex align-items-center">
+                    <div class="services-wrap rounded-right w-100">
+                        <div>
+                            <div class="verticalalignment">
+                                <div class="mainnode">
+                                    <img class="node" src="~/images/BlueCircle.png" />
+                                    <div class="imagetext">
+                                        <strong class="nodemaintext">Utrecht Maliebaan | 20:33 </strong>
+                                        <p>Via voet</p>
+                                    </div>
+                                    <img class="nodedots" src="~/images/BlueDots.png" />
                                 </div>
-                                <h3 class="heading mt-2"><a href="#">Nieuwe ov chipkaart, mogelijkheid voor meer uitbreiding</a></h3>
-                                <p><a href="#" class="btn btn-primary">Meer lezen</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry justify-content-end">
-                            <a href="blog-single.html" class="block-20" style="background-image: url('images/ns2.jpg');">
-                            </a>
-                            <div class="text pt-4">
-                                <div class="meta mb-3">
-                                    <div><a href="#">Oct. 29, 2021</a></div>
-                                    <div><a href="#">L. Ploumen</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 1</a></div>
+                                <div class="mainnode tempnodepositions">
+                                    <img class="node" src="~/images/BlueCircle.png" />
+                                    <div class="imagetext">
+                                        <strong class="nodemaintext">Utrecht Maliebaan | 20:33 </strong>
+                                        <p>Via voet</p>
+                                    </div>
                                 </div>
-                                <h3 class="heading mt-2"><a href="#">Tussenlocaties trein naar Arnhem veranderen.</a></h3>
-                                <p><a href="#" class="btn btn-primary">Meer lezen</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry">
-                            <a href="blog-single.html" class="block-20" style="background-image: url('images/Ns3.jpg');">
-                            </a>
-                            <div class="text pt-4">
-                                <div class="meta mb-3">
-                                    <div><a href="#">Oct. 29, 2021</a></div>
-                                    <div><a href="#">J. Thijssen</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                                </div>
-                                <h3 class="heading mt-2"><a href="#">Personeel loonsverhoging in bespreking gebracht.</a></h3>
-                                <p><a href="#" class="btn btn-primary">Meer lezen</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+ 
+
+                <section class="ftco-section ftco-about">
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="        background-image: url(images/buschauffeur1.jpg);">
+                            </div>
+                            <div class="col-md-6 wrap-about ftco-animate">
+                                <div class="heading-section heading-section-white pl-md-5">
+                                    <span class="subheading">Over OV Tracker</span>
+                                    <h2 class="mb-4">Hartelijke Groet Namens OV Tracker En Alle Collega's</h2>
+
+                                    <p>OV Tracker is een bedrijf gestart in 2021, sinds de start hebben we snel success geboekt door onze concurrerende route planning.</p>
+                                    <p>In samenwerking met OV, NS en Google hebben wij de beste resultaat die er te bieden is qua route planning, hierbij wordt er ook gekeken naar alternatieve route's en transport mogelijkheiden, dit betekent dat er een ruim assortiment aan keuze is welk niet aanwezig is bij andere concurrenten</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="ftco-section">
+                    <div class="container">
+                        <div class="row justify-content-center mb-5">
+                            <div class="col-md-7 text-center heading-section ftco-animate">
+                                <span class="subheading">Services</span>
+                                <h2 class="mb-3">Wij Bieden Meerdere Services</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="services services-2 w-100 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-wedding-car"></span></div>
+                                    <div class="text w-100">
+                                        <h3 class="heading mb-2">Ingerekend verlaat transport</h3>
+                                        <p>Indien er enige problemen zijn bieden wij de snelste die er op attenderen in onze app.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="services services-2 w-100 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+                                    <div class="text w-100">
+                                        <h3 class="heading mb-2">Smart Planning</h3>
+                                        <p>onze zelf gegenereerde algoritmes zorgen ervoor dat alle alternatieve vervoers mogelijkheiden ook meeberekend worden.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="services services-2 w-100 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
+                                    <div class="text w-100">
+                                        <h3 class="heading mb-2">Updates</h3>
+                                        <p>Wekelijkse updates om van te voren in te plannen wanneer er een conflict plaats vindt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="services services-2 w-100 text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+                                    <div class="text w-100">
+                                        <h3 class="heading mb-2">GPS Tracking</h3>
+                                        <p>Alle OV en NS transport middelen worden constant gecheckt op hun GPS locatie welk zich veroorloofd voor verbeterde inplanning.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="ftco-section ftco-intro" style="background-image: url(images/bus5.jpg);">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row justify-content-end">
+                            <div class="col-md-6 heading-section heading-section-white ftco-animate">
+                                <h2 class="mb-3">Wanneer op tijd komen de voorrang neemt.</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+                <section class="ftco-section">
+                    <div class="container">
+                        <div class="row justify-content-center mb-5">
+                            <div class="col-md-7 heading-section text-center ftco-animate">
+                                <span class="subheading">Artikels</span>
+                                <h2>Recente artikels</h2>
+                            </div>
+                        </div>
+                        <div class="row d-flex">
+                            <div class="col-md-4 d-flex ftco-animate">
+                                <div class="blog-entry justify-content-end">
+                                    <a href="blog-single.html" class="block-20" style="background-image: url('images/ov1.jpg');">
+                                    </a>
+                                    <div class="text pt-4">
+                                        <div class="meta mb-3">
+                                            <div><a href="#">Oct. 29, 2021</a></div>
+                                            <div><a href="#">J. Cohen</a></div>
+                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 0</a></div>
+                                        </div>
+                                        <h3 class="heading mt-2"><a href="#">Nieuwe ov chipkaart, mogelijkheid voor meer uitbreiding</a></h3>
+                                        <p><a href="#" class="btn btn-primary">Meer lezen</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-flex ftco-animate">
+                                <div class="blog-entry justify-content-end">
+                                    <a href="blog-single.html" class="block-20" style="background-image: url('images/ns2.jpg');">
+                                    </a>
+                                    <div class="text pt-4">
+                                        <div class="meta mb-3">
+                                            <div><a href="#">Oct. 29, 2021</a></div>
+                                            <div><a href="#">L. Ploumen</a></div>
+                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 1</a></div>
+                                        </div>
+                                        <h3 class="heading mt-2"><a href="#">Tussenlocaties trein naar Arnhem veranderen.</a></h3>
+                                        <p><a href="#" class="btn btn-primary">Meer lezen</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-flex ftco-animate">
+                                <div class="blog-entry">
+                                    <a href="blog-single.html" class="block-20" style="background-image: url('images/Ns3.jpg');">
+                                    </a>
+                                    <div class="text pt-4">
+                                        <div class="meta mb-3">
+                                            <div><a href="#">Oct. 29, 2021</a></div>
+                                            <div><a href="#">J. Thijssen</a></div>
+                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                        </div>
+                                        <h3 class="heading mt-2"><a href="#">Personeel loonsverhoging in bespreking gebracht.</a></h3>
+                                        <p><a href="#" class="btn btn-primary">Meer lezen</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="ftco-footer ftco-bg-dark ftco-section">
+                    <div class="container">
+                        <div class="row mb-5">
+                            <div class="col-md">
+                                <div class="ftco-footer-widget mb-4">
+                                    <h2 class="ftco-heading-2"><a href="#" class="logo">OV<span>Tracker</span></a></h2>
+                                    <p>Alle overige informatie wordt hier verleend, indien er noodzaak is voor meer mail naar helpdesk@ov.nl</p>
+                                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="ftco-footer-widget mb-4 ml-md-5">
+                                    <h2 class="ftco-heading-2">Informatie</h2>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#" class="py-2 d-block">Over</a></li>
+                                        <li><a href="#" class="py-2 d-block">Services</a></li>
+                                        <li><a href="#" class="py-2 d-block">Voorwaarden</a></li>
+                                        <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Beleid</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="ftco-footer-widget mb-4">
+                                    <h2 class="ftco-heading-2">Klant Support</h2>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#" class="py-2 d-block">FAQ</a></li>
+                                        <li><a href="#" class="py-2 d-block">Betaalingsmogelijkheiden</a></li>
+                                        <li><a href="#" class="py-2 d-block">Reservering Tips</a></li>
+                                        <li><a href="#" class="py-2 d-block">Contact Ons</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="ftco-footer-widget mb-4">
+                                    <h2 class="ftco-heading-2">Heb je een vraag?</h2>
+                                    <div class="block-23 mb-3">
+                                        <ul>
+                                            <li><span class="icon icon-map-marker"></span><span class="text">203 Domplein, Utrecht, Nederland</span></li>
+                                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">helpdesk@ov.nl</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+
+                                <p>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> All rights reserved
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
             </div>
-        </section>
-
-        <footer class="ftco-footer ftco-bg-dark ftco-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2"><a href="#" class="logo">OV<span>Tracker</span></a></h2>
-                            <p>Alle overige informatie wordt hier verleend, indien er noodzaak is voor meer mail naar helpdesk@ov.nl</p>
-                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4 ml-md-5">
-                            <h2 class="ftco-heading-2">Informatie</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">Over</a></li>
-                                <li><a href="#" class="py-2 d-block">Services</a></li>
-                                <li><a href="#" class="py-2 d-block">Voorwaarden</a></li>
-                                <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Beleid</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Klant Support</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">FAQ</a></li>
-                                <li><a href="#" class="py-2 d-block">Betaalingsmogelijkheiden</a></li>
-                                <li><a href="#" class="py-2 d-block">Reservering Tips</a></li>
-                                <li><a href="#" class="py-2 d-block">Contact Ons</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Heb je een vraag?</h2>
-                            <div class="block-23 mb-3">
-                                <ul>
-                                    <li><span class="icon icon-map-marker"></span><span class="text">203 Domplein, Utrecht, Nederland</span></li>
-                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">helpdesk@ov.nl</span></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-
-                        <p>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-    </div>
 
 
     <!-- loader -->
