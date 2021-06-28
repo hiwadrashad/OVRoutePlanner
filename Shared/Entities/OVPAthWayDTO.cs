@@ -10,8 +10,20 @@ namespace Shared.Entities
     public class OVPAthWayDTO
     {
         [Key]
-        public string id { get; set; }
+        public string Id { get; set; }
         public List<Dictionary<string, int>> LocationWaitTimes { get; set; }
+
+        public OVPAthWayDTO ShallowCopy()
+        {
+            return (OVPAthWayDTO)this.MemberwiseClone();
+        }
+
+        public OVPAthWayDTO DeepCopy()
+        {
+            OVPAthWayDTO clone = (OVPAthWayDTO)this.MemberwiseClone();
+            clone.Id = Guid.NewGuid().ToString();
+            return clone;
+        }
 
     }
 }

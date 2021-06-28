@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnitTests.Tests
 {
-    class NunitTests
+    public class NunitTests
     {
     }
 }

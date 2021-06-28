@@ -12,7 +12,19 @@ namespace Shared.Entities
         [Key]
         public string Id { get; set; }
         public PersonalInfoDTO PersonalInfo { get; set; }
-        public List<OVPAthWayDTO> Routes { get; set; } 
+        public List<OVPAthWayDTO> Routes { get; set; }
+
+        public DriverDTO ShallowCopy()
+        {
+            return (DriverDTO)this.MemberwiseClone();
+        }
+
+        public DriverDTO DeepCopy()
+        {
+            DriverDTO clone = (DriverDTO)this.MemberwiseClone();
+            clone.Id = Guid.NewGuid().ToString();
+            return clone;
+        }
 
     }
 }
