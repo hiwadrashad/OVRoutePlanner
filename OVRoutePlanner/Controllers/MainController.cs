@@ -13,5 +13,11 @@ namespace OVRoutePlanner.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Mainpage()
+        { 
+          
+        }
     }
 }
