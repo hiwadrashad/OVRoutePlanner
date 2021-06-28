@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shared.Entities
 {
+    [Serializable]
     public class PersonalInfoDTO
     {
         public string Name { get; set; }        

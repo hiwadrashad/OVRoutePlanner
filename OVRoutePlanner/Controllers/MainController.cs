@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,16 @@ namespace OVRoutePlanner.Controllers
     {
         public IActionResult Mainpage()
         {
-            return View();
+            RouteDTO route = new RouteDTO();
+            return View(route);
         }
 
         [HttpPost]
-        public IActionResult Mainpage()
-        { 
-          
-        }
+        [ValidateAntiForgeryToken]
+
+         public IActionResult Mainpage()
+         { 
+
+         }
     }
 }
