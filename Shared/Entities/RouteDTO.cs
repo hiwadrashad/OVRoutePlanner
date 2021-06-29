@@ -11,6 +11,9 @@ namespace Shared.Entities
     {
         public string StartLocation { get; set; }
         public string EndLocation { get; set; }
+        public DateTime StartingTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public DateTime Date { get; set; }
         public List<Dictionary<string, int>> LocationWaitTimes { get; set; }
         public RouteDTO ShallowCopy()
         {

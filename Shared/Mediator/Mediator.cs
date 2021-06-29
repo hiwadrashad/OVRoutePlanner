@@ -26,23 +26,36 @@ namespace Shared.Mediator
             this._emptyRoute = new RouteDTO();
         }
 
-        public RouteDTO ReturnSwappedDTO()
-        {
-            ();
-        }
-
         public RouteDTO ReturnClearedDTO()
         {
-            throw new NotImplementedException();
+            this._emptyRoute = new RouteDTO();
+            return this._emptyRoute;
         }
 
         public void Swap()
         {
-            if (_filledInRoute.IsSerializable())
+            if (this._filledInRoute.IsSerializable())
             {
-                _emptyRoute = _filledInRoute.DeepClone();
+                this._emptyRoute = _filledInRoute.DeepClone();
             }
             else
+            {
+                this._emptyRoute = _filledInRoute.ShallowCopy();
+            }
+        }
+
+        public RouteDTO ReturnSwappedDTO()
+        {
+            if (this._filledInRoute.IsSerializable())
+            {
+                this._emptyRoute = _filledInRoute.DeepClone();
+            }
+            else
+            {
+                this._emptyRoute = _filledInRoute.ShallowCopy();
+            }
+
+            return this._emptyRoute;
         }
     }
 }

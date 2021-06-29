@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Entities;
+using Shared.Mediator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,10 @@ namespace OVRoutePlanner.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-         public IActionResult Mainpage()
-         { 
-
+         public IActionResult Mainpage(RouteDTO filledInRoute)
+         {
+            Mediator mediator = new Mediator(new RouteDTO(),filledInRoute);
+            return View(mediator.ReturnSwappedDTO());
          }
     }
 }

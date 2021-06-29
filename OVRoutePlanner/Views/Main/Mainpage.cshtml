@@ -1,4 +1,5 @@
-﻿<style>
+﻿@model Shared.Entities.RouteDTO
+<style>
     body {
     overflow-x: hidden;
     }
@@ -96,6 +97,10 @@
     .tempnodepositions {
         transform: translateY(-70px);
     }
+
+    .adj-width {
+    transform: translateX(5vw);
+    }
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,36 +158,36 @@
                 </div>
             </div>
         </div>
-
         <section class="ftco-section ftco-no-pt bg-light">
             <div class="container">
                 <div class="row no-gutters">
                     <div class="col-md-12	featured-top">
                         <div class="row no-gutters">
-                            <div class="col-md-4 d-flex align-items-center">
-                                <form action="#" class="request-form ftco-animate bg-primary">
+                            <div class="col-md-4 d-flex align-items-center adj-width">
+                                <form asp-action="Mainpage" asp-controller="Main" class="request-form ftco-animate bg-primary">
                                     <h2>Vul in alle velden</h2>
+                                    @Model.StartingTime
                                     <div class="form-group">
                                         <label for="" class="label">Start Locatie</label>
-                                        <input type="text" class="form-control" placeholder="Stad, Airport, Station, etc">
+                                        <input asp-for="StartLocation" type="text" class="form-control" placeholder="Stad, Airport, Station, etc">
                                     </div>
                                     <div class="form-group">
                                         <label for="" class="label">Eind Locatie</label>
-                                        <input type="text" class="form-control" placeholder="Stad, Airport, Station, etc">
+                                        <input asp-for="EndLocation" type="text" class="form-control" placeholder="Stad, Airport, Station, etc">
                                     </div>
                                     <div class="d-flex">
                                         <div class="form-group">
-                                            <label for="" class="label">Tijd Van Vertrek</label>
-                                            <input type="text" class="form-control" id="time_pick" placeholder="Tijd">
+                                            <label for="" class="label">Vertrekstijd</label>
+                                            <input asp-for="StartingTime" type="time" class="form-control" placeholder="Tijd">
                                         </div>
                                         <div class="form-group">
-                                            <label for="" class="label">Of Tijd Van Aankomst</label>
-                                            <input type="text" class="form-control" id="time_pick" placeholder="Tijd">
+                                            <label for="" class="label">Aankomsttijd</label>
+                                            <input asp-for="EndTime" type="time" class="form-control" placeholder="Tijd">
                                         </div>
                                     </div>
                                     <div class="form-group mr-2">
                                         <label for="" class="label">Vul In Datum</label>
-                                        <input type="text" class="form-control" id="book_pick_date" placeholder="Datum">
+                                        <input asp-for="Date" type="date" class="form-control"  placeholder="Datum">
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Bereken tijd en locatie" class="btn btn-secondary py-3 px-4">
