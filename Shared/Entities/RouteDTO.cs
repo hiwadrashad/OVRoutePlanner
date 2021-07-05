@@ -14,7 +14,7 @@ namespace Shared.Entities
         public DateTime StartingTime { get; set; }
         public DateTime EndTime { get; set; }
         public DateTime Date { get; set; }
-        public List<Dictionary<string, int>> LocationWaitTimes { get; set; }
+        public TransportPathway Directions { get; set; } = new TransportPathway();
         public RouteDTO ShallowCopy()
         {
             return (RouteDTO)this.MemberwiseClone();

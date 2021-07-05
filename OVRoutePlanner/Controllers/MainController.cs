@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shared.BLL.MainFunctions;
 using Shared.Entities;
 using Shared.Mediator;
 using System;
@@ -19,11 +20,14 @@ namespace OVRoutePlanner.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+        
          public IActionResult Mainpage(RouteDTO filledInRoute)
          {
+            
             Mediator mediator = new Mediator(new RouteDTO(),filledInRoute);
-            return View(mediator.ReturnSwappedDTO());
+            var route = mediator.ReturnSwappedDTO();
+            route.Directions = GeoDirections.GetGeoDirections("Utrecht centraal", "Amersfoort centraal");
+            return View(route);
          }
     }
 }
