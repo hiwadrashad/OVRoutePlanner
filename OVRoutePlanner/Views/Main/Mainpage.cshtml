@@ -4,8 +4,6 @@
     overflow-x: hidden;
     }
 
-    .maincontainter {
-    }
 
     @@media screen and (max-width: 1367px) {
         .maincontainter {
@@ -17,6 +15,13 @@
     @@media screen and (min-width: 1367px) {
         .maincontainter {
             width: 100vw;
+            transform: translateX(-21vw);
+        }
+    }
+
+    @@media screen and (min-width: 1600px) {
+        .maincontainter {
+            width: 110vw;
             transform: translateX(-21vw);
         }
     }
@@ -80,11 +85,13 @@
     }
 
     .verticalalignment {
+        transform: translateX(20vw);
         flex-grow: 1;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         width: 100%;
+        height: !important 5000px;
     }
 
     .imagetext {
@@ -97,6 +104,7 @@
 
     .routedatacontainer {
     transform: translateX(250px);
+
     }
 
     .tempnodepositions {
@@ -181,9 +189,7 @@
                                     <h2>Vul in alle benodidge velden</h2>
                                     @if (Model.Directions.ErrorFound)
                                     {
-
                                         <h2 class="text-danger">Incorrecte informatie</h2>
-
                                     }
                                     <div class="form-group">
                                         <label for="" class="label">Start Locatie</label>
@@ -312,21 +318,60 @@
                 <div class="services-wrap rounded-right w-100">
                     <div>
                         <div class="verticalalignment">
-                            <div class="mainnode">
-                                <img class="node" src="~/images/BlueCircle.png" />
-                                <div class="imagetext">
-                                    <strong class="nodemaintext">Utrecht Maliebaan | 20:33 </strong>
-                                    <p>Via voet</p>
-                                </div>
-                                <img class="nodedots" src="~/images/BlueDots.png" />
-                            </div>
-                            <div class="mainnode tempnodepositions">
-                                <img class="node" src="~/images/BlueCircle.png" />
-                                <div class="imagetext">
-                                    <strong class="nodemaintext">Utrecht Maliebaan | 20:33 </strong>
-                                    <p>Via voet</p>
-                                </div>
-                            </div>
+                            @if (Model.Directions.Path.Count == 0)
+                            {
+                                @foreach (var node in Model.Directions.DefaultPath.Select((value, i) => new { i, value }))
+                                {
+                                    @if (node.i == (Model.Directions.DefaultPath.Count - 1))
+                                    {
+                                        <div class="mainnode" style="transform: translateY(@(node.i * -70)px)">
+                                            <img class="node" src="~/images/BlueCircle.png" />
+                                            <div class="imagetext">
+                                                <strong class="nodemaintext">@node.value.PlaceAndTime</strong>
+                                                <p>@node.value.TransportData</p>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="mainnode" style="transform: translateY(@(node.i * -70)px)">
+                                            <img class="node" src="~/images/BlueCircle.png" />
+                                            <div class="imagetext">
+                                                <strong class="nodemaintext">@node.value.PlaceAndTime</strong>
+                                                <p>@node.value.TransportData</p>
+                                            </div>
+                                            <img class="nodedots" src="~/images/BlueDots.png" />
+                                        </div>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                @foreach (var node in Model.Directions.Path.Select((value, i) => new { i, value }))
+                                {
+                                    @if (node.i == (Model.Directions.Path.Count - 1))
+                                    {
+                                        <div class="mainnode" style="transform: translateY(@(node.i * -70)px)">
+                                            <img class="node" src="~/images/BlueCircle.png" />
+                                            <div class="imagetext">
+                                                <strong class="nodemaintext">@node.value.PlaceAndTime</strong>
+                                                <p>@node.value.TransportData</p>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="mainnode" style="transform: translateY(@(node.i * -70)px)">
+                                            <img class="node" src="~/images/BlueCircle.png" />
+                                            <div class="imagetext">
+                                                <strong class="nodemaintext">@node.value.PlaceAndTime</strong>
+                                                <p>@node.value.TransportData</p>
+                                            </div>
+                                            <img class="nodedots" src="~/images/BlueDots.png" />
+                                        </div>
+                                    }
+                                }
+                            }
                         </div>
                     </div>
                 </div>
@@ -558,9 +603,9 @@
             var routingParameters = {
                 'routingMode': 'fast',
                 'transportMode': 'bus',
-                'origin': '50.1120423728813' + ',' + '8.68340740740811',
-                'destination': '52.5309916298853,13.3846220493377',
-                'return': 'polyline'
+                'origin': @Model.Directions.StartLatitude + ',' + @Model.Directions.StartLongitude,
+                'destination': @Model.Directions.EndLatitude + ',' + @Model.Directions.EndLongitude,
+                    'return': 'polyline'
             };
 
             var onResult = function (result) {

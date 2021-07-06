@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Shared.Entities.JSONEntities
 {
+    [Serializable]
+
     public class Location
     {
         [JsonProperty("lat")]
@@ -15,6 +17,9 @@ namespace Shared.Entities.JSONEntities
         [JsonProperty("lng")]
         public double Lng { get; set; }
     }
+
+    [Serializable]
+
 
     public class Place
     {
@@ -31,6 +36,8 @@ namespace Shared.Entities.JSONEntities
         public string Id { get; set; }
     }
 
+    [Serializable]
+
     public class Departure
     {
         [JsonProperty("time")]
@@ -40,6 +47,8 @@ namespace Shared.Entities.JSONEntities
         public Place Place { get; set; }
     }
 
+    [Serializable]
+
     public class Arrival
     {
         [JsonProperty("time")]
@@ -48,6 +57,8 @@ namespace Shared.Entities.JSONEntities
         [JsonProperty("place")]
         public Place Place { get; set; }
     }
+
+    [Serializable]
 
     public class Transport
     {
@@ -70,6 +81,8 @@ namespace Shared.Entities.JSONEntities
         public string Headsign { get; set; }
     }
 
+    [Serializable]
+
     public class Agency
     {
         [JsonProperty("id")]
@@ -81,6 +94,8 @@ namespace Shared.Entities.JSONEntities
         [JsonProperty("website")]
         public string Website { get; set; }
     }
+
+    [Serializable]
 
     public class Attribution
     {
@@ -96,6 +111,8 @@ namespace Shared.Entities.JSONEntities
         [JsonProperty("type")]
         public string Type { get; set; }
     }
+
+    [Serializable]
 
     public class Section
     {
@@ -121,6 +138,8 @@ namespace Shared.Entities.JSONEntities
         public List<Attribution> Attributions { get; set; }
     }
 
+    [Serializable]
+
     public class Route
     {
         [JsonProperty("id")]
@@ -129,6 +148,8 @@ namespace Shared.Entities.JSONEntities
         [JsonProperty("sections")]
         public List<Section> Sections { get; set; }
     }
+
+    [Serializable]
 
     public class GeoDirectionsJSONDTO
     {

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Shared.Entities
 {
+    [Serializable]
     public class TransportPathway
     {
         public List<TransportNode> Path { get; set; } = new List<TransportNode>();
+        public List<TransportNode> DefaultPath { get; set; } = new List<TransportNode>();
         public string StartLocation { get; set; }
         public string EndLocation { get; set; }
         public string StartLatitude { get; set; }

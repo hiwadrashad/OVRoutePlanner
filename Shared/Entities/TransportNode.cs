@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shared.Entities
 {
+    [Serializable]
     public class TransportNode
     {
         public string PlaceAndTime { get; set; }

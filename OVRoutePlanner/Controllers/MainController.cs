@@ -15,6 +15,18 @@ namespace OVRoutePlanner.Controllers
         public IActionResult Mainpage()
         {
             RouteDTO route = new RouteDTO();
+            var datenow = DateTime.Now;
+            route.StartingTime = datenow.AddTicks(-(datenow.Ticks % 10000000)).AddSeconds(-datenow.Second);
+            route.EndTime = datenow.AddTicks(-(datenow.Ticks % 10000000)).AddSeconds(-datenow.Second);
+            route.Date = datenow.AddTicks(-(datenow.Ticks % 10000000)).AddSeconds(-datenow.Second);
+            route.Directions = GeoDirections.GetDefaultGeoDirections("Utrecht centraal", "Amersfoort centraal");
+            if (route.Directions.Path.Count == 0)
+            {
+                route.Directions.StartLatitude = "52.091259";
+                route.Directions.StartLongitude = "5.122750";
+                route.Directions.EndLatitude = "52.156590";
+                route.Directions.EndLongitude = "5.388920";
+            }
             return View(route);
         }
 
@@ -26,7 +38,37 @@ namespace OVRoutePlanner.Controllers
             
             Mediator mediator = new Mediator(new RouteDTO(),filledInRoute);
             var route = mediator.ReturnSwappedDTO();
-            route.Directions = GeoDirections.GetGeoDirections("Utrecht centraal", "Amersfoort centraal");
+            var calculatefurthestdatedeparture = filledInRoute.StartingTime - DateTime.Now;
+            var calculatefurthestdatearrival = filledInRoute.EndTime - DateTime.Now;
+            if (calculatefurthestdatedeparture.Ticks < 0)
+            {
+                calculatefurthestdatedeparture.Negate();
+            }
+            if (calculatefurthestdatearrival.Ticks < 0)
+            {
+                calculatefurthestdatearrival.Negate();
+            }
+            if (calculatefurthestdatearrival > calculatefurthestdatedeparture)
+            {
+                var datetimeformatted = filledInRoute.EndTime.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss");
+                route.Directions = GeoDirections.GetGeoDirections(filledInRoute.StartLocation, filledInRoute.EndLocation, departuretime: datetimeformatted);
+            }
+            if (calculatefurthestdatedeparture > calculatefurthestdatearrival)
+            {
+                var datetimeformatted = filledInRoute.StartingTime.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss");
+                route.Directions = GeoDirections.GetGeoDirections(filledInRoute.StartLocation, filledInRoute.EndLocation, arrivaltime: datetimeformatted);
+            }
+            else 
+            {
+                route.Directions = GeoDirections.GetGeoDirections(filledInRoute.StartLocation, filledInRoute.EndLocation);
+            }
+            if (route.Directions.Path.Count == 0)
+            {
+                route.Directions.StartLatitude = "52.091259";
+                route.Directions.StartLongitude = "5.122750";
+                route.Directions.EndLatitude = "52.156590";
+                route.Directions.EndLongitude = "5.388920";
+            }
             return View(route);
          }
     }

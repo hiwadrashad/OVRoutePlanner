@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Shared.Entities.JSONEntities
 {
+    [Serializable]
+
     public class Address
     {
         [JsonProperty("label")]
@@ -40,6 +42,8 @@ namespace Shared.Entities.JSONEntities
         public string PostalCode { get; set; }
     }
 
+    [Serializable]
+
     public class Position
     {
         [JsonProperty("lat")]
@@ -48,6 +52,8 @@ namespace Shared.Entities.JSONEntities
         [JsonProperty("lng")]
         public double Lng { get; set; }
     }
+
+    [Serializable]
 
     public class MapView
     {
@@ -64,11 +70,15 @@ namespace Shared.Entities.JSONEntities
         public double North { get; set; }
     }
 
+    [Serializable]
+
     public class FieldScore
     {
         [JsonProperty("streets")]
         public List<double> Streets { get; set; }
     }
+
+    [Serializable]
 
     public class Scoring
     {
@@ -78,6 +88,8 @@ namespace Shared.Entities.JSONEntities
         [JsonProperty("fieldScore")]
         public FieldScore FieldScore { get; set; }
     }
+
+    [Serializable]
 
     public class Item
     {
@@ -102,6 +114,8 @@ namespace Shared.Entities.JSONEntities
         [JsonProperty("scoring")]
         public Scoring Scoring { get; set; }
     }
+
+    [Serializable]
 
     public class GeoCodingJSONDTO
     {
