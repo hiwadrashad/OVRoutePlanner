@@ -13,13 +13,14 @@ namespace Shared.BLL.SubFunctions
 {
     public class Pathway
     {
-        public static TransportPathway GenerateDefaultPathWay(TransportPathway pathway, string StartAdress = "Utrecht centraal", string EndAdress = "Amersfoort centraal", string departuretime = "", string arrivaltime = "")
+        public static TransportPathway GenerateDefaultPathWay(TransportPathway pathway, string StartAdress = "Utrecht centraal", string EndAdress = "Amersfoort centraal")
         {
 
             var client = new WebClient();
             (string latitude, string Langitude) StartCoordinate = GeoCoding.GetLocation(StartAdress);
             (string latitude, string Langitude) EndCoordinate = GeoCoding.GetLocation(EndAdress);
             var text = client.DownloadString("https://transit.router.hereapi.com/v8/routes?apiKey=etD-X973Kg34aiS8AbEKeptq9SZD3euMf_HM-XKoudQ&origin=" + StartCoordinate.latitude + "," + StartCoordinate.Langitude + "&destination=" + EndCoordinate.latitude + "," + EndCoordinate.Langitude + "&departureTime=2021-07-02T17:00:00");
+          
             GeoDirectionsJSONDTO post = JsonConvert.DeserializeObject<GeoDirectionsJSONDTO>(text);
             if (StartCoordinate.Langitude == "0" || StartCoordinate.latitude == "0" || EndCoordinate.Langitude == "0" || EndCoordinate.latitude == "0")
             {
@@ -61,13 +62,30 @@ namespace Shared.BLL.SubFunctions
         /// <param name="EndAdress"></param>
         /// <returns></returns>
         /// 
-        public static TransportPathway GeneratePathWay(TransportPathway pathway, string StartAdress = "Utrecht centraal", string EndAdress = "Amersfoort centraal")
+        public static TransportPathway GeneratePathWay(TransportPathway pathway, string StartAdress = "Utrecht centraal", string EndAdress = "Amersfoort centraal",string departuretime = "", string arrivaltime = "")
         {
 
             var client = new WebClient();
             (string latitude, string Langitude) StartCoordinate = GeoCoding.GetLocation(StartAdress);
             (string latitude, string Langitude) EndCoordinate = GeoCoding.GetLocation(EndAdress);
-            var text = client.DownloadString("https://transit.router.hereapi.com/v8/routes?apiKey=etD-X973Kg34aiS8AbEKeptq9SZD3euMf_HM-XKoudQ&origin=" + StartCoordinate.latitude + "," + StartCoordinate.Langitude + "&destination=" + EndCoordinate.latitude + "," + EndCoordinate.Langitude + "&departureTime=2021-07-02T17:00:00");
+            string text = "";
+            if (departuretime == "" && arrivaltime == "")
+            {
+                text = client.DownloadString("https://transit.router.hereapi.com/v8/routes?apiKey=etD-X973Kg34aiS8AbEKeptq9SZD3euMf_HM-XKoudQ&origin=" + StartCoordinate.latitude + "," + StartCoordinate.Langitude + "&destination=" + EndCoordinate.latitude + "," + EndCoordinate.Langitude + "&departureTime=2021-07-02T17:00:00");
+                Console.WriteLine("this is hit");
+            }
+            if (departuretime != "")
+            {
+                text = client.DownloadString("https://transit.router.hereapi.com/v8/routes?apiKey=etD-X973Kg34aiS8AbEKeptq9SZD3euMf_HM-XKoudQ&origin=" + StartCoordinate.latitude + "," + StartCoordinate.Langitude + "&destination=" + EndCoordinate.latitude + "," + EndCoordinate.Langitude + "&departureTime=" + departuretime);
+                Console.WriteLine("this is hit");
+
+            }
+            if (arrivaltime != "")
+            {
+                text = client.DownloadString("https://transit.router.hereapi.com/v8/routes?apiKey=etD-X973Kg34aiS8AbEKeptq9SZD3euMf_HM-XKoudQ&origin=" + StartCoordinate.latitude + "," + StartCoordinate.Langitude + "&destination=" + EndCoordinate.latitude + "," + EndCoordinate.Langitude + "&arrival=" + arrivaltime);
+                Console.WriteLine("this is hit");
+
+            }
             GeoDirectionsJSONDTO post = JsonConvert.DeserializeObject<GeoDirectionsJSONDTO>(text);
             if (StartCoordinate.Langitude == "0" || StartCoordinate.latitude == "0" || EndCoordinate.Langitude == "0" || EndCoordinate.latitude == "0")
             {

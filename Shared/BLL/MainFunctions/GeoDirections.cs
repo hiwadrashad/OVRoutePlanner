@@ -78,7 +78,19 @@ namespace Shared.BLL.MainFunctions
             }
             try
             {
-                var filledinpathway = Pathway.GeneratePathWay(pathway, StartAdress, EndAdress);
+                TransportPathway filledinpathway = new TransportPathway();
+                if (departuretime == "" & arrivaltime == "")
+                {
+                    filledinpathway = Pathway.GeneratePathWay(pathway, StartAdress, EndAdress);
+                }
+                if (departuretime != "")
+                {
+                    filledinpathway = Pathway.GeneratePathWay(pathway, StartAdress, EndAdress, departuretime: departuretime);
+                }
+                if (arrivaltime != "")
+                {
+                    filledinpathway = Pathway.GeneratePathWay(pathway, StartAdress, EndAdress, arrivaltime: arrivaltime);
+                }
                 foreach (var item in filledinpathway.Path)
                 {
                     Console.WriteLine(item.PlaceAndTime);
