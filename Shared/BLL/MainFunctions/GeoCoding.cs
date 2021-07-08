@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Shared.BLL.MainFunctions
 {
-    public class GeoCoding : GeoDirections
+    public class GeoCoding
     {
         public static (string Latitude, string Longitude) GetLocation(string Adress)
         {
