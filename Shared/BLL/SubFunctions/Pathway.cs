@@ -72,18 +72,15 @@ namespace Shared.BLL.SubFunctions
             if (departuretime == "" && arrivaltime == "")
             {
                 text = client.DownloadString("https://transit.router.hereapi.com/v8/routes?apiKey=etD-X973Kg34aiS8AbEKeptq9SZD3euMf_HM-XKoudQ&origin=" + StartCoordinate.latitude + "," + StartCoordinate.Langitude + "&destination=" + EndCoordinate.latitude + "," + EndCoordinate.Langitude + "&departureTime=2021-07-02T17:00:00");
-                Console.WriteLine("this is hit");
             }
             if (departuretime != "")
             {
                 text = client.DownloadString("https://transit.router.hereapi.com/v8/routes?apiKey=etD-X973Kg34aiS8AbEKeptq9SZD3euMf_HM-XKoudQ&origin=" + StartCoordinate.latitude + "," + StartCoordinate.Langitude + "&destination=" + EndCoordinate.latitude + "," + EndCoordinate.Langitude + "&departureTime=" + departuretime);
-                Console.WriteLine("this is hit");
 
             }
             if (arrivaltime != "")
             {
                 text = client.DownloadString("https://transit.router.hereapi.com/v8/routes?apiKey=etD-X973Kg34aiS8AbEKeptq9SZD3euMf_HM-XKoudQ&origin=" + StartCoordinate.latitude + "," + StartCoordinate.Langitude + "&destination=" + EndCoordinate.latitude + "," + EndCoordinate.Langitude + "&arrival=" + arrivaltime);
-                Console.WriteLine("this is hit");
 
             }
             GeoDirectionsJSONDTO post = JsonConvert.DeserializeObject<GeoDirectionsJSONDTO>(text);
