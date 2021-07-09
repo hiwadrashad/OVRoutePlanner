@@ -1,1 +1,0 @@
-﻿adding departure and arrival time in pathway method, and making it work on global level
