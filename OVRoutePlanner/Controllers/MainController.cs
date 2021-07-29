@@ -27,6 +27,7 @@ namespace OVRoutePlanner.Controllers
                 route.Directions.EndLatitude = "52.156590";
                 route.Directions.EndLongitude = "5.388920";
             }
+            route.Directions.ErrorFound = false;
             return View(route);
         }
 
